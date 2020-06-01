@@ -26,13 +26,11 @@ def get_cancel_reject_ratio(df):
 	df['%Ratio for Q/H'] = ((np.array(df['Quote_Cancel_Rejects']))/(np.array(df['Hedge_Cancel_Rejects']))* 100.0)
 	return df
 
-df = grab_data_file(file_path) 
-
 #Correlation_NegDF.plot(kind ='bar')
-def setGraph(ndf, exchange_name):
+def set_graph(ndf, exchange_name):
 	if(all(ndf['Exchange'] != exchange_name)):
 		print("The exchange you have type is not in this spread! Try changing your spread by using the add function")
-		printGraphs()
+		display_graph()
 	else:
 		set_df = ndf[ndf['Exchange'] == exchange_name]
 		plt.figure()
@@ -90,77 +88,77 @@ def setGraph(ndf, exchange_name):
 
 ########Print Different Graphs#############
 ########WORK IN PROGRESS###################
-def printGraphs(df=None):
+def display_graph(df=None):
 	graphName = input("Enter Command here: ")
 	if("arca" in graphName):
 		graphName = "Arca"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("byx" in graphName):
 		graphName = "BYX"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("bloom" in graphName):
 		graphName = "Bloomberg"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("cbx" in graphName):
 		graphName = "CBX"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("cs" in graphName):
 		graphName = "CS"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("pool" in graphName):
 		graphName = "CSLPool"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("citi" in graphName):
 		graphName = "CitiMatch"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("dbp" in graphName):
 		graphName = "DBPool"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("ice" in graphName):
 		graphName = "ICE"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("iex" in graphName):
 		graphName = "IEX"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("isb" in graphName):
 		graphName = "ISBX"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("itg" in graphName):
 		graphName = "ITG"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("inet" in graphName):
 		graphName = "Inet"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("jpm" in graphName):
 		graphName = "JPMX"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("knight" in graphName):
 		graphName = "KnightMatch"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("lev" in graphName):
 		graphName = "LEVEL"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("lx" in graphName):
 		graphName = "LX"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("mlxn" in graphName):
 		graphName = "MLXN"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("ubs" in graphName):
 		graphName = "UBS"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("edgx" in graphName):
 		graphName = "EDGX"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("edga" in graphName):
 		graphName = "EDGA"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("nyse" in graphName):
 		graphName = "NYSE"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	if("gs" in graphName):
 		graphName = "GS"
-		setGraph(df,graphName)
+		set_graph(df,graphName)
 	elif("exit" in graphName):
 		raise SystemExit
 	elif("add" in graphName):
@@ -181,7 +179,7 @@ def main(first_run):
 	df = grab_data_file(file_path)
 	format_data(df)
 	get_cancel_reject_ratio(df)
-	printGraphs(df)
+	display_graph(df)
 if __name__ == "__main__":
 	main(True)
 	
